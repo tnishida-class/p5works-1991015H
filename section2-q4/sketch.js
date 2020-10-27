@@ -2,14 +2,20 @@
 function setup() {
   const blue = color(0, 51, 160);
   createCanvas(270, 180);
-  // noStroke();
-  background(255);
+  noStroke();
+  background(blue);
 
-  let d = height / 9; // 縞1本の太さ
+  let d = height / 9;
 
-  for(let i = 0; i < 9; i++){
-    // BLANK[1] (hint: 縞の色を交互に変えるには2で割った余りを使おう)
-    rect(0, i * d, width, (i + 1) * d);
+  for(let i = 1; i < 10; i++){
+    if(i % 2 == 0){
+      rect(0, (i-1) * d, width, d);
+      fill('white');
+    }
+    else{
+      rect(0, i * d, width, d);
+      noFill();
+    }
   }
 
   fill(blue);
@@ -17,5 +23,6 @@ function setup() {
   rect(0, 0, size, size);
 
   fill(255);
-  // BLANK[2] (hint: 白い十字を描くには rect を二つ描こう)
+  rect(40,0,20,100);
+  rect(0,40,100,20);
 }
