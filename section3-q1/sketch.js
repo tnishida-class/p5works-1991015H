@@ -11,8 +11,16 @@ function balloon(t){
   let w = textWidth(t);
   let h = textAscent() + textDescent();
   let p = 2;
+  strokeWeight(1);
   fill(0);
-  rect(0, 0, w + p * 2, h + p * 2);
+  beginShape();
+  vertex((w + p * 2) - (w + p * 10) / 4,(h + p * 2));
+  vertex((w + p * 2) / 2 ,(h + p * 2) + 30);
+  vertex((w + p * 2) ,(h + p * 2));
+  endShape(CLOSE);
+  fill(0);
+  ellipse((w + p * 2), (h + p * 2), w + p * 10, h + p * 10);
   fill(255);
-  text(t, p, h + p);
+  textSize(12);
+  text(t, (w / 2 + p * 2), (h + p * 2) + 4);
 }
